@@ -2,8 +2,15 @@ package com.github.battleship;
 
 public class Game {
 
+	private Player myPlayer;
+	private AI myAI;
+	
 	public Game() 
 	{
+		myPlayer = new Player(new BoatBoard(),
+				new PointerBoard());
+		myAI = new AI(new BoatBoard(),
+				new PointerBoard());
 		
 	}
 	
@@ -11,6 +18,9 @@ public class Game {
 	// {
 	public void gameBootup() 
 	{
+		myPlayer.placePlayerBoats();
+		myAI.placeAIBoats();
+		printBoard();
 		
 	}
 	
@@ -25,4 +35,10 @@ public class Game {
 		
 	}
 	// }
+	
+	//prints out player board + AI Board for testing after each round
+	public void printBoard() 
+	{
+		
+	}
 }

@@ -2,9 +2,18 @@ package com.github.battleship;
 
 public class AI {
 
+	private BoatBoard AIBBoard;
+	private PointerBoard AIPBoard;
+	
 	public AI() 
 	{
 		
+	}
+	
+	public AI(BoatBoard b, PointerBoard p) 
+	{
+		AIBBoard = b;
+		AIPBoard = p;
 	}
 	
 	//methods that the AI can do

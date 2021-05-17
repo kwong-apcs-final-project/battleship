@@ -27,4 +27,19 @@ public class AI {
 	{
 		
 	}
+	
+	public int numBoats() 
+	{
+		return 1;
+	}
+	
+	public BoatBoard getAIBBaord() 
+	{
+		return AIBBoard;
+	}
+	
+	public PointerBoard getAIPBoard() 
+	{
+		return AIPBoard;
+	}
 }

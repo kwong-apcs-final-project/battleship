@@ -7,13 +7,8 @@ public class Player {
 	
 	public Player() 
 	{
-		
-	}
-	
-	public Player(BoatBoard b, PointerBoard p) 
-	{
-		BBoard = b;
-		PBoard = p;
+		//set BoatBoard in placePlayerBoats()
+		PBoard = new PointerBoard();
 	}
 	
 	//methods that Player can do
@@ -26,6 +21,21 @@ public class Player {
 	public void playPlayerRound() 
 	{
 		
+	}
+	
+	public int numBoats() 
+	{
+		return 1;
+	}
+	
+	public BoatBoard getBBoard() 
+	{
+		return BBoard;
+	}
+	
+	public PointerBoard getPBoard() 
+	{
+		return PBoard;
 	}
 
 }

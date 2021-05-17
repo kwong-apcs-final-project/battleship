@@ -7,10 +7,8 @@ public class Game {
 	
 	public Game() 
 	{
-		myPlayer = new Player(new BoatBoard(),
-				new PointerBoard());
-		myAI = new AI(new BoatBoard(),
-				new PointerBoard());
+		myPlayer = new Player();
+		myAI = new AI();
 		
 	}
 	
@@ -27,11 +25,29 @@ public class Game {
 	//plays both Player and AI turns
 	public void playRound() 
 	{
+		myPlayer.playPlayerRound();
+		myAI.playAIRound();
+		
+		if (myPlayer.numBoats() == 0 ||
+				myAI.numBoats() == 0) 
+		{
+			endGame();
+		}
+		
+		printBoard();
 		
 	}
 	
 	public void endGame() 
 	{
+		if (myPlayer.numBoats() == 0) 
+		{
+			System.out.println("You lost");
+		}
+		else 
+		{
+			System.out.println("NICE! You won!");
+		}
 		
 	}
 	// }

@@ -1,5 +1,13 @@
 package com.github.battleship;
 
+/**
+ * Class that represents an AI, the player's opponent
+ * 
+ * IN PROGRESS
+ * 
+ * @author kbagal
+ *
+ */
 public class AI {
 
 	private BoatBoard AIBBoard;

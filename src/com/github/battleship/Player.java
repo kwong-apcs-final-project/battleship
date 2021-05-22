@@ -49,10 +49,26 @@ public class Player {
 	 * changes the boats appropriately
 	 * @param attemptToHit
 	 */
-	public void playPlayerRound(Location attemptToHit) 
+	public void getShot(Location attemptToHit) 
 	{
 		//use method "Does hit" in BBoard
 		//use boat method "hit point" to change it
+		boolean hits = BBoard.hasHit(attemptToHit);
+		if (hits) 
+		{
+			//remove location from boat
+			BBoard.removeLoc(attemptToHit);
+			BBoard.ifDeadThenRemove();
+		}
+	}
+	
+	/**
+	 * Method to shoot at enemy
+	 * @param hitter location to try
+	 */
+	public void playPlayerRound(AI enemy, Location hitter) 
+	{
+		enemy.getShot(hitter);
 	}
 	
 	/**
@@ -61,7 +77,7 @@ public class Player {
 	 */
 	public int numBoats() 
 	{
-		return 1;
+		return BBoard.numBoats();
 	}
 	
 	/**

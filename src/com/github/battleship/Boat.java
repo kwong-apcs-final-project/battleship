@@ -25,6 +25,50 @@ public class Boat {
 		
 	}
 	
+	/**
+	 * Method that returns whether is given location is
+	 * on the boat or not
+	 * @param attemptToHit location to test
+	 * @return boolean if true or not
+	 */
+	public boolean isHit(Location attemptToHit) 
+	{
+		for (Location loc : locations) 
+		{
+			if (loc.same(attemptToHit)) 
+			{
+				return true;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Method to remove a given hit point from 
+	 * Available hit locations
+	 * @param attemptToHit the hit spot
+	 */
+	public void removeLoc(Location attemptToHit) 
+	{
+		for (int i = 0; i < locations.size(); i++) 
+		{
+			if (locations.get(i).same(attemptToHit)) 
+			{
+				locations.remove(i);
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Assessor method for number of hittable spots left
+	 * @return locations.size() = num of hittble spots
+	 */
+	public int spotsLeft() 
+	{
+		return locations.size();
+	}
+	
 	public ArrayList<Location> calculateHittable(Boat b)
 	{
 		//return an arrayList of even single hittable

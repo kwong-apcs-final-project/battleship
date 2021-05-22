@@ -88,6 +88,20 @@ public class Location {
 	}
 	
 	/**
+	 * Method to tell if one location is same as given one
+	 * @param other other location to test
+	 * @return boolean if same or not
+	 */
+	public boolean same(Location other) 
+	{
+		if (xPos == other.getX() && yPos == other.getY()) 
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Method to return both x and y
 	 * @return returning an array of x and y positions
 	 */

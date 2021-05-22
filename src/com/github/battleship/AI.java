@@ -36,6 +36,11 @@ public class AI {
 		
 	}
 	
+	public void getShot(Location attemptToHit) 
+	{
+		
+	}
+	
 	public int numBoats() 
 	{
 		return 1;

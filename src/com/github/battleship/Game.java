@@ -51,7 +51,7 @@ public class Game {
 	 */
 	public void playRound(Location ath) 
 	{
-		myPlayer.playPlayerRound(ath);
+		myPlayer.playPlayerRound(myAI, ath);
 		myAI.playAIRound();
 		
 		if (myPlayer.numBoats() == 0 ||

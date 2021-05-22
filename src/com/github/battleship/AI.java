@@ -1,13 +1,5 @@
 package com.github.battleship;
 
-/**
- * Class that represents an AI, the player's opponent
- * 
- * IN PROGRESS
- * 
- * @author kbagal
- *
- */
 public class AI {
 
 	private BoatBoard AIBBoard;
@@ -34,25 +26,5 @@ public class AI {
 	public void playAIRound() 
 	{
 		
-	}
-	
-	public void getShot(Location attemptToHit) 
-	{
-		
-	}
-	
-	public int numBoats() 
-	{
-		return 1;
-	}
-	
-	public BoatBoard getAIBBaord() 
-	{
-		return AIBBoard;
-	}
-	
-	public PointerBoard getAIPBoard() 
-	{
-		return AIPBoard;
 	}
 }

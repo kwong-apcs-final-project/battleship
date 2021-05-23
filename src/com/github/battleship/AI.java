@@ -68,6 +68,7 @@ public class AI {
 		p.getShot(spotsLeft.get(randIdx));
 		
 		//return Location where shooting
+		//for use in frontend
 		Location returning = spotsLeft.get(randIdx);
 		spotsLeft.remove(randIdx);
 		return (returning);

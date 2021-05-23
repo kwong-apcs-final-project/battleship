@@ -52,7 +52,7 @@ public class Game {
 	public void playRound(Location ath) 
 	{
 		myPlayer.playPlayerRound(myAI, ath);
-		myAI.playAIRound();
+		myAI.playAIRound(myPlayer);
 		
 		if (myPlayer.numBoats() == 0 ||
 				myAI.numBoats() == 0) 

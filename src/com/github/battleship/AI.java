@@ -66,6 +66,8 @@ public class AI {
 		int randIdx = (int)(Math.random() * size);
 		
 		p.getShot(spotsLeft.get(randIdx));
+		
+		//return Location where shooting
 		Location returning = spotsLeft.get(randIdx);
 		spotsLeft.remove(randIdx);
 		return (returning);

@@ -53,6 +53,8 @@ public class Game {
 	public Location playRound(Location ath) 
 	{
 		myPlayer.playPlayerRound(myAI, ath);
+		
+		//Location is spot where AI is going to fire
 		Location AIhit = myAI.playAIRound(myPlayer);
 		
 		//check if either player dead

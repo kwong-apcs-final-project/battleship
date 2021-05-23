@@ -48,11 +48,12 @@ public class Game {
 	/**
 	 * Method to play one round of the game
 	 * @param ath (attempt to hit) location to try
+	 * @return Location where AI is going to hit
 	 */
-	public void playRound(Location ath) 
+	public Location playRound(Location ath) 
 	{
 		myPlayer.playPlayerRound(myAI, ath);
-		myAI.playAIRound(myPlayer);
+		Location AIhit = myAI.playAIRound(myPlayer);
 		
 		//check if either player dead
 		if (myPlayer.numBoats() == 0 ||
@@ -62,6 +63,7 @@ public class Game {
 		}
 		
 		printBoard();
+		return AIhit;
 		
 	}
 	

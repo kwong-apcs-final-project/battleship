@@ -60,13 +60,15 @@ public class AI {
 	 * and fire there
 	 * @param p player to fire to
 	 */
-	public void playAIRound(Player p) 
+	public Location playAIRound(Player p) 
 	{
 		int size = spotsLeft.size();
 		int randIdx = (int)(Math.random() * size);
 		
 		p.getShot(spotsLeft.get(randIdx));
+		Location returning = spotsLeft.get(randIdx);
 		spotsLeft.remove(randIdx);
+		return (returning);
 		
 	}
 	

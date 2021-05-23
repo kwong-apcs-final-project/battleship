@@ -15,11 +15,19 @@ import java.util.UUID;
 public class TurnHandler extends TextWebSocketHandler {
     HashMap<UUID, Game> gameList;
     Game game;
+
+    /**
+     * Collects needed fields to do handling
+     * @param gameList list O Games
+     */
     public TurnHandler (HashMap<UUID, Game> gameList) {
         this.gameList = gameList;
     }
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) {
+        //TODO main.js needs to control game
+        //TODO Construct Client Turn Changes
+        //TODO add AI turn changes into the loop
 
     }
 }

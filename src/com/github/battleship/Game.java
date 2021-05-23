@@ -54,6 +54,7 @@ public class Game {
 		myPlayer.playPlayerRound(myAI, ath);
 		myAI.playAIRound(myPlayer);
 		
+		//check if either player dead
 		if (myPlayer.numBoats() == 0 ||
 				myAI.numBoats() == 0) 
 		{

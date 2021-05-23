@@ -70,7 +70,7 @@ public class AI {
 	 */
 	public void getShot(Location attemptToHit) 
 	{
-		
+		//plug in same thing as Player.java
 	}
 	
 	/**

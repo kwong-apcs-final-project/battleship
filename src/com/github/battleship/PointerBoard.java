@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Class that represents a board of all places
  * where the AI has shot to
  * 
+ * MAY BE DELETED LATER IF NEEDED
  * 
  * @author kbagal
  *

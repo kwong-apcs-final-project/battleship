@@ -14,6 +14,7 @@ public class AI {
 
 	private BoatBoard AIBBoard;
 	private PointerBoard AIPBoard;
+	private ArrayList<Location> spotsLeft;
 	
 	/**
 	 * Default constructor just in case
@@ -23,6 +24,14 @@ public class AI {
 		AIPBoard = new PointerBoard();
 		//AIBBoard is going to be initialized in placeAIBoats
 		//maybe change placeAIBoats into here when cleaning up
+		spotsLeft = new ArrayList<Location>(100);
+		for (int i = 0; i < 10; i++) 
+		{
+			for (int j = 0; j < 10; j++) 
+			{
+				spotsLeft.add(new Location(i, j));
+			}
+		}
 	}
 	
 	/**
@@ -53,15 +62,12 @@ public class AI {
 	 */
 	public void playAIRound(Player p) 
 	{
-		int row = 0;
-		int col = 0;
-		do 
-		{
-			row = (int) (Math.random() * 10);
-			col = (int) (Math.random() * 10);
-		}while(AIPBoard.isContained(new Location(row, col)));
+		int size = spotsLeft.size();
+		int randIdx = (int)(Math.random() * size);
 		
-		p.getShot(new Location(row, col));
+		p.getShot(spotsLeft.get(randIdx));
+		spotsLeft.remove(randIdx);
+		
 	}
 	
 	/**

@@ -17,7 +17,7 @@ public class AI {
 	private ArrayList<Location> spotsLeft;
 	
 	/**
-	 * Default constructor just in case
+	 * Default constructor - most likely to be used
 	 */
 	public AI() 
 	{
@@ -36,6 +36,9 @@ public class AI {
 	
 	/**
 	 * Constructs a new AI object
+	 * 
+	 * May not be used
+	 * 
 	 * @param b board to insert
 	 */
 	public AI(BoatBoard b) 
@@ -52,6 +55,7 @@ public class AI {
 	 */
 	public void placeAIBoats() 
 	{
+		
 		
 	}
 	
@@ -82,6 +86,15 @@ public class AI {
 	public void getShot(Location attemptToHit) 
 	{
 		//plug in same thing as Player.java
+		//use method "Does hit" in BBoard
+		//use boat method "hit point" to change it
+		boolean hits = AIBBoard.hasHit(attemptToHit);
+		if (hits) 
+		{
+			//remove location from boat
+			AIBBoard.removeLoc(attemptToHit);
+			AIBBoard.ifDeadThenRemove();
+		}
 	}
 	
 	/**

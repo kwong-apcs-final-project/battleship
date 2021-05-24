@@ -69,11 +69,4 @@ public class Boat {
 		return locations.size();
 	}
 	
-	public ArrayList<Location> calculateHittable(Boat b)
-	{
-		//return an arrayList of even single hittable
-		//object for a given boat
-		return new ArrayList<Location>();
-	}
-	
 }

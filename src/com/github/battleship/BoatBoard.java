@@ -12,6 +12,15 @@ public class BoatBoard {
 	private ArrayList<Boat> bboard;
 	
 	/**
+	 * Default constructor used for AI
+	 * since AI doesn't have boats to start
+	 */
+	public BoatBoard() 
+	{
+		bboard = new ArrayList<Boat>(5);
+	}
+	
+	/**
 	 * Constructs a new BoatBoard Object
 	 * 
 	 * @param b1 boat 1
@@ -87,8 +96,76 @@ public class BoatBoard {
 		return bboard.size();
 	}
 	
-	public void lostBoat() 
+	/**
+	 * Method to place a boat of a given length
+	 * into a random place in the board
+	 * 
+	 * @param length length of boat to be placed
+	 */
+	public void placeBoat(int length) 
 	{
+		int viablePos = 10 - length;
+		int row = (int)(Math.random() * viablePos);
+		int col = (int)(Math.random() * viablePos);
+		//gives values from 0 - len such that adding a ship
+		//of size len does not = idx out of bounds
 		
+		int horizOrVert = (int)(Math.random() * 2); // 0 or 1
+		ArrayList<Location> newBoat = new ArrayList<Location>(length);
+		if (horizOrVert == 0) // place boat vertically
+		{
+			for (int r = 0; r < length; r++) 
+			{
+				Location test = new Location(row + r, col);
+				if (locAlreadyUsed(test)) 
+				{
+					placeBoat(length);
+				}
+				else 
+				{
+					newBoat.add(test);
+				}
+			}
+		}
+		else //place boat horizontally
+		{
+			for (int c = 0; c < length; c++) 
+			{
+				Location test = new Location(row, col + c);
+				if (locAlreadyUsed(test)) 
+				{
+					placeBoat(length);
+				}
+				else 
+				{
+					newBoat.add(test);
+				}
+			}
+		}
+		
+		//if reach here, all locations are not in use so add boat
+		bboard.add(new Boat(newBoat));
+	}
+	
+	/**
+	 * Method to find if a given location is already
+	 * being used by another boat or not
+	 * 
+	 * @param loc
+	 */
+	public boolean locAlreadyUsed(Location locTest) 
+	{
+		for (Boat b : bboard) 
+		{
+			ArrayList<Location> locs = b.getLocations();
+			for (Location loc : locs) 
+			{
+				if (loc.same(locTest)) 
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

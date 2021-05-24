@@ -22,6 +22,7 @@ public class AI {
 	public AI() 
 	{
 		AIPBoard = new PointerBoard();
+		AIBBoard = new BoatBoard();
 		//AIBBoard is going to be initialized in placeAIBoats
 		//maybe change placeAIBoats into here when cleaning up
 		spotsLeft = new ArrayList<Location>(100);
@@ -51,12 +52,17 @@ public class AI {
 	
 	/**
 	 * Method to place boats of AI randomly
-	 * into AIBBoard
+	 * into AIBBoard with boat size of 5, 4, 3, 3, 2
 	 */
 	public void placeAIBoats() 
 	{
-		
-		
+		//place 5 boats, each with different lengths
+		//use method placeBoat for this
+		AIBBoard.placeBoat(5);
+		AIBBoard.placeBoat(4);
+		AIBBoard.placeBoat(3);
+		AIBBoard.placeBoat(3);
+		AIBBoard.placeBoat(2);
 	}
 	
 	/**

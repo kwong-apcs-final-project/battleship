@@ -69,4 +69,14 @@ public class Boat {
 		return locations.size();
 	}
 	
+	/**
+	 * Accessor method for locations that boat uses
+	 * 
+	 * @return locations the locations the boat uses
+	 */
+	public ArrayList<Location> getLocations()
+	{
+		return locations;
+	}
+	
 }

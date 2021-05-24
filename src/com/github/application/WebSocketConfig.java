@@ -8,6 +8,8 @@ import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.config.annotation.*;
+import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
+import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -15,11 +17,12 @@ import java.util.UUID;
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-    HashMap<UUID, Game> gameSessions = new HashMap<UUID, Game>();
+    HashMap<UUID, Game> gameSessions = new HashMap<>();
+
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(startGameHandler(), "/startGame").setAllowedOrigins("*").withSockJS();
-        registry.addHandler(turnHandler(), "/endTurn").setAllowedOrigins("*").withSockJS();
+        registry.addHandler(startGameHandler(), "/startGame").addInterceptors(new HttpSessionHandshakeInterceptor());
+        registry.addHandler(turnHandler(), "/endTurn").addInterceptors(new HttpSessionHandshakeInterceptor());
 
     }
 

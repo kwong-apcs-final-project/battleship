@@ -71,6 +71,7 @@ public class Boat {
 	
 	/**
 	 * Accessor method for locations that boat uses
+	 * used in AI.java but can be used for testing
 	 * 
 	 * @return locations the locations the boat uses
 	 */

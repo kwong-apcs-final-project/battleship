@@ -38,7 +38,7 @@ public class AI {
 	/**
 	 * Constructs a new AI object
 	 * 
-	 * May not be used
+	 * (May not be used)
 	 * 
 	 * @param b board to insert
 	 */

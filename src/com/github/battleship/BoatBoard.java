@@ -99,6 +99,7 @@ public class BoatBoard {
 	/**
 	 * Method to place a boat of a given length
 	 * into a random place in the board
+	 * used only in AI.java
 	 * 
 	 * @param length length of boat to be placed
 	 */

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class BoatBoard {
 
 	private ArrayList<Boat> bboard;
+	private ArrayList<Location> safeSpots; //all values not used by boat
 	
 	/**
 	 * Default constructor used for AI
@@ -18,6 +19,14 @@ public class BoatBoard {
 	public BoatBoard() 
 	{
 		bboard = new ArrayList<Boat>(5);
+		safeSpots = new ArrayList<Location>(100);
+		for (int i = 0; i < 10; i++) 
+		{
+			for (int j = 0; j < 10; j++) 
+			{
+				safeSpots.add(new Location(i, j));
+			}
+		}
 	}
 	
 	/**
@@ -96,6 +105,7 @@ public class BoatBoard {
 		return bboard.size();
 	}
 	
+	
 	/**
 	 * Method to place a boat of a given length
 	 * into a random place in the board
@@ -113,6 +123,7 @@ public class BoatBoard {
 		
 		int horizOrVert = (int)(Math.random() * 2); // 0 or 1
 		ArrayList<Location> newBoat = new ArrayList<Location>(length);
+		int idx = 0;
 		if (horizOrVert == 0) // place boat vertically
 		{
 			for (int r = 0; r < length; r++) 
@@ -121,6 +132,7 @@ public class BoatBoard {
 				if (locAlreadyUsed(test)) 
 				{
 					placeBoat(length);
+					return;
 				}
 				else 
 				{
@@ -136,6 +148,7 @@ public class BoatBoard {
 				if (locAlreadyUsed(test)) 
 				{
 					placeBoat(length);
+					return;
 				}
 				else 
 				{
@@ -168,5 +181,31 @@ public class BoatBoard {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Method for adding a boat manually in to the list
+	 * used for testing of class
+	 * 
+	 * @param b boat to add
+	 */
+	public void addBoatManually(Boat b) 
+	{
+		bboard.add(b);
+	}
+	
+	/**
+	 * ToString method for BoatBoard
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		String returning = "";
+		for (int i = 1; i <= bboard.size(); i++) 
+		{
+			returning += "Boat #" + i + " => " + 
+		bboard.get(i - 1).toString() + "\n";
+		}
+		return returning;
 	}
 }

@@ -17,7 +17,7 @@ import java.util.UUID;
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-    HashMap<UUID, Game> gameSessions = new HashMap<>();
+    HashMap<String, Game> gameSessions = new HashMap<>();
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
@@ -36,7 +36,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
         while (gameSessions.containsKey(random)){
             random = UUID.randomUUID();
         }
-        gameSessions.put(random, new Game() );
-        return new startGameHandler(random, gameSessions);
+        gameSessions.put(random.toString(), new Game() );
+        return new startGameHandler(random.toString(), gameSessions);
     }
 }

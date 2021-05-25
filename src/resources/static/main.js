@@ -1,3 +1,4 @@
+
 // Create WebSocket connection.
 const socket = new WebSocket('ws://localhost:8080/startGame');
 
@@ -9,4 +10,20 @@ socket.addEventListener('open', function (event) {
 // Listen for messages
 socket.addEventListener('message', function (event) {
     console.log('Message from server ', event.data);
+    test2ndWebScoket(event.data);
 });
+
+function test2ndWebScoket (uuid) {
+    // Create WebSocket connection.
+    var socket = new WebSocket('ws://localhost:8080/endTurn');
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        socket.send('['+uuid+',{"xPos":6,"yPos":3}]');
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+    });
+}

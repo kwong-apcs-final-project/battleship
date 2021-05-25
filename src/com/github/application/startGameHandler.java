@@ -27,10 +27,10 @@ import java.util.UUID;
 
 public class startGameHandler extends BinaryWebSocketHandler {
 
-    UUID uuid;
-    HashMap<UUID, Game> listGames;
+    String uuid;
+    HashMap<String, Game> listGames;
 
-    public startGameHandler(UUID randomUUID, HashMap<UUID, Game> gameSessions) {
+    public startGameHandler(String randomUUID, HashMap<String, Game> gameSessions) {
         uuid = randomUUID;
         listGames = gameSessions;
     }
@@ -57,7 +57,7 @@ public class startGameHandler extends BinaryWebSocketHandler {
         newGame.gameBootup(allBoatLocs.get(0), allBoatLocs.get(1), allBoatLocs.get(2),
                 allBoatLocs.get(3), allBoatLocs.get(4) ); // Passes on the arraylists
         listGames.put(uuid, newGame);
-        TextMessage tm = new TextMessage( uuid.toString());
+        TextMessage tm = new TextMessage( uuid);
         try {
             session.sendMessage(tm); // Let's the Client know what the UUID is
         } catch (IOException e) {

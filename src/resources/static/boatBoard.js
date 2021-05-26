@@ -175,7 +175,7 @@ export function handleHit(loc) {
     y: pointerY,
     width: 60 * 1,
     height: 60 * 1,
-    fill: '#8E1600',
+    fill: color,
     stroke: '#ddd',
     strokeWidth: 1,
   });

@@ -28,7 +28,7 @@ export function newShip(x, y, layer, stage, size) {
         y: y,
         width: blockSnapSize * 1,
         height: blockSnapSize * size,
-        fill: '#fff',
+        fill: '#1c4966',
         stroke: '#ddd',
         strokeWidth: 1,
         shadowColor: 'black',
@@ -87,22 +87,22 @@ export function newShip(x, y, layer, stage, size) {
         // If 0 or 360
         var listOfLocations = [];
         for (let i = 1; i <= size; i++) {
-            var loc = {x: 0, y:0};
+            var loc = {xPos: 0, yPos:0};
             if (rotation == 0 || rotation == 360) {
-                loc.x = segmentCord.x + 1;
-                loc.y = segmentCord.y + i;
+                loc.xPos = segmentCord.x + 1;
+                loc.yPos = segmentCord.y + i;
             } else
             if (rotation == 90) {
-                loc.x = segmentCord.x + 1- i;
-                loc.y = segmentCord.y + 1;
+                loc.xPos = segmentCord.x + 1- i;
+                loc.yPos = segmentCord.y + 1;
             } else
             if (rotation == 180 ) {
-                loc.x = segmentCord.x;
-                loc.y = segmentCord.y + 1 - i;
+                loc.xPos = segmentCord.x;
+                loc.yPos = segmentCord.y + 1 - i;
             } else
             if (rotation == 270 ) {
-                loc.x = segmentCord.x + i;
-                loc.y = segmentCord.y;
+                loc.xPos = segmentCord.x + i;
+                loc.yPos = segmentCord.y;
             }
             listOfLocations.push(loc);
         }
@@ -207,22 +207,22 @@ export function newPointer(x, y, layer, stage) {
         // If 0 or 360
         var listOfLocations = [];
         for (let i = 1; i <= size; i++) {
-            var loc = {x: 0, y:0};
+            var loc = {xPos: 0, yPos:0};
             if (rotation == 0 || rotation == 360) {
-                loc.x = segmentCord.x + 1;
-                loc.y = segmentCord.y + i;
+                loc.xPos = segmentCord.x + 1;
+                loc.yPos = segmentCord.y + i;
             } else
             if (rotation == 90) {
-                loc.x = segmentCord.x + 1- i;
-                loc.y = segmentCord.y + 1;
+                loc.xPos = segmentCord.x + 1- i;
+                loc.yPos = segmentCord.y + 1;
             } else
             if (rotation == 180 ) {
-                loc.x = segmentCord.x;
-                loc.y = segmentCord.y + 1 - i;
+                loc.xPos = segmentCord.x;
+                loc.yPos = segmentCord.y + 1 - i;
             } else
             if (rotation == 270 ) {
-                loc.x = segmentCord.x + i;
-                loc.y = segmentCord.y;
+                loc.xPos = segmentCord.x + i;
+                loc.yPos = segmentCord.y;
             }
             listOfLocations.push(loc);
         }

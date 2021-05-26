@@ -1,6 +1,8 @@
 import {newShip, newPointer} from  './util.js'
 
 
+//TODO: Spawn Pointer Callback
+
 var width = 1200;
 var height = 600;
 var blockSnapSize = 60;
@@ -67,30 +69,12 @@ var pointerRBox = new Konva.Rect({
     x: 900,
     y: 0,
     width: 300,
-    height: 300,
+    height: 600,
     fill: '#8E1600'
 
 });
 toolBoxes.add(pointerRBox)
-pointerRBox.on('click', ()=> {
-  var pos = stage.getRelativePointerPosition();
-  newPointer(pos.x, pos.y, foreGround, stage, false, shadowRectangle);
-});
 
-var pointerBBox = new Konva.Rect({
-    x: 900,
-    y: 300,
-    width: 300,
-    height: 300,
-    fill: '#00D2FF'
-
-});
-toolBoxes.add(pointerBBox)
-
-pointerBBox.on('click', ()=> {
-  var pos = stage.getRelativePointerPosition();
-  newShip(pos.x, pos.y, foreGround, stage, 3);
-});
 
 var boatBox = new Konva.Rect({
     x:0,
@@ -99,12 +83,33 @@ var boatBox = new Konva.Rect({
     height: 600,
     fill: '#7E7E7E'
 })
-toolBoxes.add(boatBox)
-stage.add(toolBoxes);
+toolBoxes.add(boatBox);
+////TODO: Boat Postion Call back on pointerBoard.js
+// TODO: Lock Down Boats, non draggable
+var carrier = newShip(0,0,foreGround,stage,5);
+var battleship = newShip(0,0,foreGround,stage,4);
+var cruiser = newShip(0,0,foreGround,stage,3);
+var submerine = newShip(0,0,foreGround,stage,3);
+var destroyer = newShip(0,0,foreGround,stage,2);
+var listOfAllShips = [carrier,battleship,cruiser, submerine, destroyer];
+function checkAllShip () {
+  return carrier.checkPositions() && battleship.checkPositions() &&
+         cruiser.checkPositions() && submerine.checkPositions() &&
+         destroyer.checkPositions();
+}
+listOfAllShips.forEach(ship => {
+  ship.on('dragend', (e) => {
+    
+  });
+  ship.on('dblclick', ()=> {
+    
+  });
+});
 
 
 var layer = new Konva.Layer();
 shadowRectangle.hide();
 layer.add(shadowRectangle);
+stage.add(toolBoxes);
 stage.add(foreGround);
 stage.add(layer);

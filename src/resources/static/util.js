@@ -1,3 +1,4 @@
+
 var width = 1200;
 var height = 600;
 var shadowOffset = 20;
@@ -5,7 +6,9 @@ var tween = null;
 var blockSnapSize = 60;
 /*
 */
+
 export function newShip(x, y, layer, stage, size) {
+    
     var shadow = new Konva.Rect({
         x: 0,
         y: 0,
@@ -46,6 +49,7 @@ export function newShip(x, y, layer, stage, size) {
         });
         stage.batchDraw();
         shadow.hide();
+
     });
     rectangle.on('dragmove', (e) => {
         shadow.position({
@@ -57,12 +61,20 @@ export function newShip(x, y, layer, stage, size) {
     rectangle.on('dblclick', ()=> {
         shadow.rotate(-90);
         rectangle.rotate(-90);
-        stage.batchDraw;
-        console.log(rectangle.findAbstractCord());
+        stage.batchDraw();
+        console.log(checkAllShip());
     });
 
-    //TODO: Make a function that finds abstract cordinates that the boat is at
-
+    rectangle.checkPositions =  () => {
+        positions = rectangle.findAbstractCord();
+        var correct = true;
+        positions.forEach(location => {
+            if (location.x <= 0 || location.x >= 10 || location.y <= 0 || location.y >= 10 ) {
+                correct = false;
+            }
+        });
+        return correct;
+    }
     rectangle.findAbstractCord = () => {
         var segmentCord = rectangle.findSegementCord();
         let size = rectangle.findAbstractSize();
@@ -114,6 +126,7 @@ export function newShip(x, y, layer, stage, size) {
     }
     
     layer.add(rectangle);
+    return rectangle;
 }
 
 /**

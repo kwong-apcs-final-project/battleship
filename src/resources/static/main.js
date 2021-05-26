@@ -1,4 +1,9 @@
 
+//TODO: Boat Postion Call back on pointerBoard.js
+//TODO: Attack Postion find on boatBaord.js
+// TODO: AI attack postino callback on pointer
+
+
 // Create WebSocket connection.
 const socket = new WebSocket('ws://localhost:8080/startGame');
 

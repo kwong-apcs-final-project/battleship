@@ -113,12 +113,25 @@ public class Game {
 	}
 	
 	/**
+	 * Accessor method for myPlayer
+	 * To be used for testing
+	 * 
+	 * @return myPlayer the game's player
+	 */
+	public Player getMyPlayer() 
+	{
+		return myPlayer;
+	}
+	
+	/**
 	 * ToString method for Game
 	 * To be used for testing
 	 */
 	public String toString() 
 	{
-		return (myPlayer.toString() + "\n" + myAI.toString());
+		String returning = "Players Boats: \n" + myPlayer.toString() 
+		+ "\n" + "AI's Boats: \n" + myAI.toString();
+		return (returning);
 	}
 	
 	/**

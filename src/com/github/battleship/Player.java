@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Player {
 	
 	private BoatBoard BBoard;
+
 	
 	/**
 	 * Constructs a new Player Object

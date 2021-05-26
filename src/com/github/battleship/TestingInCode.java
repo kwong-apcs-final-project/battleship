@@ -9,7 +9,7 @@ public class TestingInCode {
 		//REMOVE COMMENTS FOR WHATEVER CLASSES
 		//YOU WANT TO TEST
 		
-		//testGame();
+		testGame();
 		//testPlayer();
 		//testAI();
 		//testBoatBoard();
@@ -27,19 +27,21 @@ public class TestingInCode {
 		locs.add(new Location(1, 2));
 		locs.add(new Location(1, 3));
 		ArrayList<Location> locs2 = new ArrayList<Location>(2);
-		locs.add(new Location(2, 2));
-		locs.add(new Location(2, 3));
+		locs2.add(new Location(2, 2));
+		locs2.add(new Location(2, 3));
 		ArrayList<Location> locs3 = new ArrayList<Location>(2);
-		locs.add(new Location(3, 2));
-		locs.add(new Location(3, 3));
+		locs3.add(new Location(3, 2));
+		locs3.add(new Location(3, 3));
 		ArrayList<Location> locs4 = new ArrayList<Location>(2);
-		locs.add(new Location(4, 2));
-		locs.add(new Location(4, 3));
+		locs4.add(new Location(4, 2));
+		locs4.add(new Location(4, 3));
 		ArrayList<Location> locs5 = new ArrayList<Location>(2);
-		locs.add(new Location(5, 2));
-		locs.add(new Location(5, 3));
+		locs5.add(new Location(5, 2));
+		locs5.add(new Location(5, 3));
 		g.gameBootup(locs, locs2, locs3, locs4, locs5);
-		System.out.print(g.toStringNoPlayer());
+		System.out.println(g.getMyPlayer().getBBoard().hasHit(new Location(1, 3)));
+		System.out.println(g.playerHit(new Location(1, 8)));
+		System.out.print(g.toString());
 	}
 	
 	/**
@@ -66,7 +68,7 @@ public class TestingInCode {
 		Player p = new Player();
 		p.placePlayerBoats(locs, locs2, locs3, locs4, locs5);
 		System.out.println(p);
-		System.out.println(p.numBoats()); //works as intended even though print doesn't work
+		System.out.println(p.numBoats());
 		
 		//same get shot so that works as well
 		

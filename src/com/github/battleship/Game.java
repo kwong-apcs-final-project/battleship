@@ -71,6 +71,20 @@ public class Game {
 	}
 	
 	/**
+	 * Method to return a boolean for whether a player has gotten
+	 * hit if it gets shot at a certain location
+	 * 
+	 * To be used in the frontend of the code, not used for game logic
+	 * 
+	 * @param loc location to test if player gets hit
+	 * @return boolean whether player gets hit at that location or not
+	 */
+	public boolean playerHit(Location loc) 
+	{
+		return myPlayer.getBBoard().hasHit(loc);
+	}
+	
+	/**
 	 * Game ending method
 	 * (May not be in use)
 	 */

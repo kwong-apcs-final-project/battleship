@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class AI {
 
 	private BoatBoard AIBBoard;
-	private PointerBoard AIPBoard;
 	private ArrayList<Location> spotsLeft;
 	
 	/**
@@ -21,7 +20,6 @@ public class AI {
 	 */
 	public AI() 
 	{
-		AIPBoard = new PointerBoard();
 		AIBBoard = new BoatBoard();
 		//AIBBoard is going to be initialized in placeAIBoats
 		//maybe change placeAIBoats into here when cleaning up
@@ -45,7 +43,6 @@ public class AI {
 	public AI(BoatBoard b) 
 	{
 		AIBBoard = b;
-		AIPBoard = new PointerBoard();
 	}
 	
 	//methods that the AI can do
@@ -117,18 +114,18 @@ public class AI {
 	 * Accessor method for AIBBoard
 	 * @return AIBBoard the board
 	 */
-	public BoatBoard getAIBBaord() 
+	public BoatBoard getAIBBoard() 
 	{
 		return AIBBoard;
 	}
 	
-	/**
-	 * Accessor method for AIPBoard
-	 * @return AIPBoard the board
-	 */
-	public PointerBoard gotAIPBoard() 
-	{
-		return AIPBoard;
-	}
 	
+	/**
+	 * ToString method for AI
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		return AIBBoard.toString();
+	}
 }

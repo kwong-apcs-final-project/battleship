@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Player {
 	
 	private BoatBoard BBoard;
-	private PointerBoard PBoard;
 	
 	/**
 	 * Constructs a new Player Object
@@ -21,7 +20,6 @@ public class Player {
 	public Player() 
 	{
 		//set BoatBoard in placePlayerBoats()
-		PBoard = new PointerBoard();
 	}
 	
 	//methods that Player can do
@@ -89,13 +87,13 @@ public class Player {
 		return BBoard;
 	}
 	
-	/**
-	 * Assessor method for number of boats still in play
-	 * @return all pointers
-	 */
-	public PointerBoard getPBoard() 
-	{
-		return PBoard;
-	}
 
+	/**
+	 * ToString method for Player
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		return BBoard.toString();
+	}
 }

@@ -110,4 +110,13 @@ public class Location {
 		int[] returning = {xPos, yPos};
 		return returning;
 	}
+	
+	/**
+	 * ToString method for Location
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		return ("x = " + xPos + " y = " + yPos);
+	}
 }

@@ -40,7 +40,7 @@ public class Boat {
 				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	/**
@@ -78,6 +78,20 @@ public class Boat {
 	public ArrayList<Location> getLocations()
 	{
 		return locations;
+	}
+	
+	/**
+	 * ToString method for Boat
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		String returning = "";
+		for (Location loc : locations) 
+		{
+			returning += "(" + loc.toString() + ")  " ;
+		}
+		return returning;
 	}
 	
 }

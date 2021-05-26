@@ -97,4 +97,25 @@ public class Game {
 	{
 		
 	}
+	
+	/**
+	 * ToString method for Game
+	 * To be used for testing
+	 */
+	public String toString() 
+	{
+		return (myPlayer.toString() + "\n" + myAI.toString());
+	}
+	
+	/**
+	 * ToString method for Game 
+	 * without player since player = null
+	 * at start without boats being initialized
+	 * 
+	 * @return toString w/o player
+	 */
+	public String toStringNoPlayer() 
+	{
+		return myAI.toString();
+	}
 }

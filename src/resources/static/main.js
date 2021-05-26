@@ -34,6 +34,17 @@ function test2ndWebScoket (uuid) {
 }
 
 export function boatPositionCallback(position) {
-    console.log(position);
+    
+    var socket = new WebSocket('ws://localhost:8080/startGame');
+    console.log(JSON.stringify(position));
+    let string = JSON.stringify(position);
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        socket.send(string);
+    });
 
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        alert('message recivied: ' + event.data );
+    });
 }

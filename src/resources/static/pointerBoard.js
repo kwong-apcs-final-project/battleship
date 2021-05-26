@@ -1,4 +1,6 @@
 import {newShip, newPointer,} from  './util.js'
+import {pointerPositionCallback} from './main.js'
+//TODO: Attack Postion find on boatBaord.js
 
 
 var width = 1200;
@@ -58,6 +60,31 @@ var grid = new Konva.Rect({
   x: 300,
   fill: '#222222'
 });
+var mainPointer;
+export function playerTurn () {
+  mainPointer = newPointer(50, 50, foreGround, stage);
+  mainPointer.on('dblclick', ()=> {
+    if (mainPointer.checkPositions()){
+        mainPointer.hide();
+        pointerPositionCallback(mainPointer.findAbstractCord()[0])
+    }
+  });
+}
+
+export function aiHit (hasHit) {
+  let color;
+  if (hasHit) {
+    color = "#8E1600";
+  } else {
+    color = "white";
+  }
+  var newPointer = mainPointer.clone({
+    draggable: false,
+    fill: color,
+  })
+  foreGround.add(newPointer);
+  newPointer.show();
+}
 backgroundLayer.add(grid);
 
 var foreGround = new Konva.Layer();
@@ -67,30 +94,12 @@ var pointerRBox = new Konva.Rect({
     x: 900,
     y: 0,
     width: 300,
-    height: 300,
-    fill: '#8E1600'
+    height: 600,
+    fill: '#7E7E7E'
 
 });
 toolBoxes.add(pointerRBox)
-pointerRBox.on('click', ()=> {
-  var pos = stage.getRelativePointerPosition();
-  newPointer(pos.x, pos.y, foreGround, stage, false, shadowRectangle);
-});
 
-var pointerBBox = new Konva.Rect({
-    x: 900,
-    y: 300,
-    width: 300,
-    height: 300,
-    fill: '#00D2FF'
-
-});
-toolBoxes.add(pointerBBox)
-
-pointerBBox.on('click', ()=> {
-  var pos = stage.getRelativePointerPosition();
-  newPointer(pos.x, pos.y, foreGround, stage, true, shadowRectangle);
-});
 
 var boatBox = new Konva.Rect({
     x:0,

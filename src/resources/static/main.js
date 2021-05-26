@@ -21,6 +21,10 @@ export function boatPositionCallback(position) {
     });
 }
 
+export function boatBoardDoneCallback () {
+    playerTurn();
+}
+
 export function pointerPositionCallback(endTurn) {
     
     var socket2 = new WebSocket('ws://localhost:8080/endTurn');

@@ -1,5 +1,5 @@
 import {newShip, newPointer} from  './util.js'
-import {boatPositionCallback} from './main.js'
+import {boatPositionCallback, boatBoardDoneCallback} from './main.js'
 
 //TODO: Spawn Pointer Callback
 
@@ -151,8 +151,25 @@ readyMessage.on('click', (e) => {
   //TODO: Can still drag
 });
 export function handleHit(loc) {
-  let pointerX = ((loc.xPos-1) *60) + 300;
-  let pointerY = ((loc.yPos-1) * 60);
+
+
+  var hit = false;
+  listOfAllShips.forEach(boat => {
+      if (boat.x() == loc.xPos && boat.y() == loc.yPos()) {
+        hit = true;
+      }
+  });
+  let color;
+  if (hit) {
+    color = "#8E1600";
+  } else {
+    color = "white";
+  }
+
+  
+
+  let pointerX = (loc.xPos  *60) + 300;
+  let pointerY = (loc.yPos * 60);
   var pointer = new Konva.Rect({
     x: pointerX,
     y: pointerY,
@@ -163,6 +180,7 @@ export function handleHit(loc) {
     strokeWidth: 1,
   });
   foreGround.add(pointer);
+  boatBoardDoneCallback();
 }
 var layer = new Konva.Layer();
 shadowRectangle.hide();

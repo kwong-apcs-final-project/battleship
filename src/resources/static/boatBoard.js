@@ -150,10 +150,24 @@ readyMessage.on('click', (e) => {
   boatPositionCallback(boatArrays);
   //TODO: Can still drag
 });
-
+export function handleHit(loc) {
+  let pointerX = ((loc.xPos-1) *60) + 300;
+  let pointerY = ((loc.yPos-1) * 60);
+  var pointer = new Konva.Rect({
+    x: pointerX,
+    y: pointerY,
+    width: 60 * 1,
+    height: 60 * 1,
+    fill: '#8E1600',
+    stroke: '#ddd',
+    strokeWidth: 1,
+  });
+  foreGround.add(pointer);
+}
 var layer = new Konva.Layer();
 shadowRectangle.hide();
 layer.add(shadowRectangle);
 stage.add(toolBoxes);
 stage.add(foreGround);
 stage.add(layer);
+

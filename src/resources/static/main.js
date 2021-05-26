@@ -1,4 +1,5 @@
 import {playerTurn, aiHit} from './pointerBoard.js';
+import {handleHit} from './boatBoard.js';
 //TODO: Attack Postion find on boatBaord.js
 // TODO: AI attack postino callback on pointer
 
@@ -35,5 +36,6 @@ export function pointerPositionCallback(endTurn) {
         console.log( event.data );
         var aiTurn = JSON.parse(event.data);
         aiHit(aiTurn.hasHit);
+        handleHit(aiTurn.aiHit)
     });
 }

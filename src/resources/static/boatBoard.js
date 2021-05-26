@@ -1,4 +1,4 @@
-import {newRectangle, newPointer, newShip} from  './util.js'
+import {newShip, newPointer} from  './util.js'
 
 
 var width = 1200;
@@ -89,7 +89,7 @@ toolBoxes.add(pointerBBox)
 
 pointerBBox.on('click', ()=> {
   var pos = stage.getRelativePointerPosition();
-  newShip(pos.x, pos.y, foreGround, stage, shadowRectangle, 3);
+  newShip(pos.x, pos.y, foreGround, stage, 3);
 });
 
 var boatBox = new Konva.Rect({

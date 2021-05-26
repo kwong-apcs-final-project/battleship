@@ -3,53 +3,28 @@ var height = 600;
 var shadowOffset = 20;
 var tween = null;
 var blockSnapSize = 60;
+/*
+*/
+export function newShip(x, y, layer, stage, size) {
+    var shadow = new Konva.Rect({
+        x: 0,
+        y: 0,
+        width: blockSnapSize * 1,
+        height: blockSnapSize * size,
+        fill: '#FF7B17',
+        opacity: 0.6,
+        stroke: '#CF6412',
+        strokeWidth: 3,
+        dash: [20, 2]
+      });
+    shadow.hide();
 
-export function newRectangle(x, y, layer, stage) {
+    layer.add(shadow)      
     let rectangle = new Konva.Rect({
         x: x,
         y: y,
         width: blockSnapSize * 1,
-        height: blockSnapSize * 1,
-        fill: '#fff',
-        stroke: '#ddd',
-        strokeWidth: 1,
-        shadowColor: 'black',
-        shadowBlur: 2,
-        shadowOffset: {x : 1, y : 1},
-        shadowOpacity: 0.4,
-        draggable: true
-    });
-    rectangle.on('dragstart', (e) => {
-        shadow.show();
-        shadow.moveToTop();
-        rectangle.moveToTop();
-    });
-    rectangle.on('dragend', (e) => {
-        rectangle.position({
-        x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
-        y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
-        });
-        stage.batchDraw();
-        shadow.hide();
-    });
-    rectangle.on('dragmove', (e) => {
-        shadow.position({
-        x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
-        y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
-        });
-        stage.batchDraw();
-    });
-    layer.add(rectangle);
-}
-
-export function newShip(x, y, layer, stage, shadow, size) {
-    let rectangle = new Konva.Ellipse({
-        x: x,
-        y: y,
-        width: blockSnapSize * 1,
         height: blockSnapSize * size,
-        radiusX: blockSnapSize/2,
-        radiusY: blockSnapSize/2,
         fill: '#fff',
         stroke: '#ddd',
         strokeWidth: 1,
@@ -79,10 +54,67 @@ export function newShip(x, y, layer, stage, shadow, size) {
         });
         stage.batchDraw();
     });
+    rectangle.on('dblclick', ()=> {
+        shadow.rotate(-90);
+        rectangle.rotate(-90);
+        stage.batchDraw;
+        console.log(rectangle.findAbstractCord());
+    });
+
+    //TODO: Make a function that finds abstract cordinates that the boat is at
+
+    rectangle.findAbstractCord = () => {
+        var segmentCord = rectangle.findSegementCord();
+        let size = rectangle.findAbstractSize();
+        let rotation = rectangle.rotation();
+        //find Coterminal 
+        
+        while (rotation <= 0) {
+            rotation+= 360
+        } 
+        // Only 4 Positions
+        // If 0 or 360
+        var listOfLocations = [];
+        for (let i = 1; i <= size; i++) {
+            var loc = {x: 0, y:0};
+            if (rotation == 0 || rotation == 360) {
+                loc.x = segmentCord.x + 1;
+                loc.y = segmentCord.y + i;
+            } else
+            if (rotation == 90) {
+                loc.x = segmentCord.x + 1- i;
+                loc.y = segmentCord.y + 1;
+            } else
+            if (rotation == 180 ) {
+                loc.x = segmentCord.x;
+                loc.y = segmentCord.y + 1 - i;
+            } else
+            if (rotation == 270 ) {
+                loc.x = segmentCord.x + i;
+                loc.y = segmentCord.y;
+            }
+            listOfLocations.push(loc);
+        }
+        return listOfLocations;
+        
+    }
+
+    rectangle.findSegementCord = () => {
+        let xMinusOffset  = rectangle.x() - 300;
+        let yMinusOffset = rectangle.y();
+
+        let segmentX = xMinusOffset/60
+        let segmentY = yMinusOffset/60;
+        var segmentCord = { x: segmentX, y: segmentY};
+        return segmentCord;
+    }
+
+    rectangle.findAbstractSize = () => {
+        return (rectangle.height()/rectangle.width());
+    }
+    
     layer.add(rectangle);
 }
-
-
 
 /**
  * Adds Pionter to specfied Stage

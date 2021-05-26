@@ -1,4 +1,4 @@
-import {newRectangle, newPointer,} from  './util.js'
+import {newShip, newPointer,} from  './util.js'
 
 
 var width = 1200;

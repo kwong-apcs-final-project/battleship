@@ -62,7 +62,9 @@ public class Game {
 		if (myPlayer.numBoats() == 0 ||
 				myAI.numBoats() == 0) 
 		{
-			endGame();
+			//returns (-1, 1) if player wins
+			//returns (1, -1) if AI wins
+			return (endGame());
 		}
 		
 		printBoard();
@@ -86,17 +88,21 @@ public class Game {
 	
 	/**
 	 * Game ending method
-	 * (May not be in use)
+	 * Returns a different set of locations depending on who won
+	 * 
+	 * @return Location (-1, 1) if Player win, (1, -1) if AI win
 	 */
-	public void endGame() 
+	public Location endGame() 
 	{
 		if (myPlayer.numBoats() == 0) 
 		{
-			System.out.println("You lost");
+			//player wins
+			return (new Location(-1, 1));
 		}
-		else 
+		else
 		{
-			System.out.println("NICE! You won!");
+			//AI wins
+			return (new Location(-1, 1));
 		}
 		
 	}

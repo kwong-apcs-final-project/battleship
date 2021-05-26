@@ -39,7 +39,7 @@ public class TestingInCode {
 		locs5.add(new Location(5, 2));
 		locs5.add(new Location(5, 3));
 		g.gameBootup(locs, locs2, locs3, locs4, locs5);
-		System.out.println(g.getMyPlayer().getBBoard().hasHit(new Location(1, 3)));
+		System.out.println(g.getMyPlayer().getBBoard().hasHit(new Location(1, 8)));
 		System.out.println(g.playerHit(new Location(1, 8)));
 		System.out.print(g.toString());
 	}

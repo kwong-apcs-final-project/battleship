@@ -1,5 +1,5 @@
 import {newShip, newPointer} from  './util.js'
-
+import {boatPositionCallback} from './main.js'
 
 //TODO: Spawn Pointer Callback
 
@@ -70,10 +70,33 @@ var pointerRBox = new Konva.Rect({
     y: 0,
     width: 300,
     height: 600,
+    fill: '#7E7E7E'
+
+});
+
+var readyMessage  = new Konva.Group();
+var readyBox = new Konva.Rect({
+    x: 900,
+    y: 150,
+    width: 300,
+    height: 300,
     fill: '#8E1600'
 
 });
-toolBoxes.add(pointerRBox)
+var simpleText = new Konva.Text({
+  x: 910,
+  y: 110 + readyBox.height() / 2,
+  text: 'Ready?',
+  fontSize: 80,
+  fontFamily: 'Calibri',
+  fill: 'white',
+});
+readyMessage.hide();
+readyMessage.add(readyBox);
+readyMessage.add(simpleText);
+toolBoxes.add(pointerRBox);
+toolBoxes.add(readyMessage);
+
 
 
 var boatBox = new Konva.Rect({
@@ -85,7 +108,6 @@ var boatBox = new Konva.Rect({
 })
 toolBoxes.add(boatBox);
 ////TODO: Boat Postion Call back on pointerBoard.js
-// TODO: Lock Down Boats, non draggable
 var carrier = newShip(0,0,foreGround,stage,5);
 var battleship = newShip(0,0,foreGround,stage,4);
 var cruiser = newShip(0,0,foreGround,stage,3);
@@ -97,15 +119,33 @@ function checkAllShip () {
          cruiser.checkPositions() && submerine.checkPositions() &&
          destroyer.checkPositions();
 }
+
 listOfAllShips.forEach(ship => {
   ship.on('dragend', (e) => {
-    
+    if ( checkAllShip()) {
+      readyMessage.show()
+    } else {
+      readyMessage.hide()
+    }
   });
   ship.on('dblclick', ()=> {
-    
+    if ( checkAllShip()) {
+      readyMessage.show()
+    } else{ 
+      readyMessage.hide()
+    }
   });
 });
-
+readyMessage.on('click', (e) => {
+  readyMessage.hide();
+  var boatArrays = [];
+  listOfAllShips.forEach(ship => {
+    ship.dragStop();
+    boatArrays.push(ship.findAbstractCord());
+  });
+  boatPositionCallback(boatArrays);
+  //TODO: Can still drag
+});
 
 var layer = new Konva.Layer();
 shadowRectangle.hide();

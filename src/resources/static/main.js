@@ -32,3 +32,8 @@ function test2ndWebScoket (uuid) {
         console.log('Message from server ', event.data);
     });
 }
+
+export function boatPositionCallback(position) {
+    console.log(position);
+
+}

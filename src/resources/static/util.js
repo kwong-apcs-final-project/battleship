@@ -62,11 +62,10 @@ export function newShip(x, y, layer, stage, size) {
         shadow.rotate(-90);
         rectangle.rotate(-90);
         stage.batchDraw();
-        console.log(checkAllShip());
     });
 
     rectangle.checkPositions =  () => {
-        positions = rectangle.findAbstractCord();
+        var positions = rectangle.findAbstractCord();
         var correct = true;
         positions.forEach(location => {
             if (location.x <= 0 || location.x >= 10 || location.y <= 0 || location.y >= 10 ) {
@@ -123,6 +122,10 @@ export function newShip(x, y, layer, stage, size) {
 
     rectangle.findAbstractSize = () => {
         return (rectangle.height()/rectangle.width());
+    }
+
+    rectangle.dragStop = () => {
+        rectangle.stopDrag();
     }
     
     layer.add(rectangle);

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Boat {
 	
 	private ArrayList<Location> locations;
-	private ArrayList<Location> hits;
 	
 	//ask if inputs are going to be Locations or x/y coordinates
 	/**
@@ -21,8 +20,6 @@ public class Boat {
 	public Boat(ArrayList<Location> boatLoc) 
 	{
 		locations = boatLoc;
-		hits = new ArrayList<Location>(5);
-		
 	}
 	
 	/**

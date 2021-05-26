@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class BoatBoard {
 
 	private ArrayList<Boat> bboard;
-	private ArrayList<Location> safeSpots; //all values not used by boat
 	
 	/**
 	 * Default constructor used for AI
@@ -19,14 +18,6 @@ public class BoatBoard {
 	public BoatBoard() 
 	{
 		bboard = new ArrayList<Boat>(5);
-		safeSpots = new ArrayList<Location>(100);
-		for (int i = 0; i < 10; i++) 
-		{
-			for (int j = 0; j < 10; j++) 
-			{
-				safeSpots.add(new Location(i, j));
-			}
-		}
 	}
 	
 	/**
@@ -116,8 +107,8 @@ public class BoatBoard {
 	public void placeBoat(int length) 
 	{
 		int viablePos = 10 - length;
-		int row = (int)(Math.random() * viablePos);
-		int col = (int)(Math.random() * viablePos);
+		int row = (int)(Math.random() * viablePos) + 1;
+		int col = (int)(Math.random() * viablePos) + 1;
 		//gives values from 0 - len such that adding a ship
 		//of size len does not = idx out of bounds
 		
@@ -126,7 +117,7 @@ public class BoatBoard {
 		int idx = 0;
 		if (horizOrVert == 0) // place boat vertically
 		{
-			for (int r = 0; r < length; r++) 
+			for (int r = 0; r <= length; r++) 
 			{
 				Location test = new Location(row + r, col);
 				if (locAlreadyUsed(test)) 
@@ -142,7 +133,7 @@ public class BoatBoard {
 		}
 		else //place boat horizontally
 		{
-			for (int c = 0; c < length; c++) 
+			for (int c = 0; c <= length; c++) 
 			{
 				Location test = new Location(row, col + c);
 				if (locAlreadyUsed(test)) 

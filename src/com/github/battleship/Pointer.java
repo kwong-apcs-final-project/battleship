@@ -1,5 +1,10 @@
 package com.github.battleship;
 
+/*
+ * 
+ * CLASS NOT IN USE ANYMORE
+ *
+ */
 public class Pointer{
 
 	private Location point;

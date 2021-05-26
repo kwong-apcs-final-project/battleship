@@ -24,9 +24,9 @@ public class AI {
 		//AIBBoard is going to be initialized in placeAIBoats
 		//maybe change placeAIBoats into here when cleaning up
 		spotsLeft = new ArrayList<Location>(100);
-		for (int i = 0; i < 10; i++) 
+		for (int i = 1; i <= 10; i++) 
 		{
-			for (int j = 0; j < 10; j++) 
+			for (int j = 1; j <= 10; j++) 
 			{
 				spotsLeft.add(new Location(i, j));
 			}

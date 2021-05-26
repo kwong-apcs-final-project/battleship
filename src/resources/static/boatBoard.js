@@ -140,8 +140,12 @@ readyMessage.on('click', (e) => {
   readyMessage.hide();
   var boatArrays = [];
   listOfAllShips.forEach(ship => {
-    ship.dragStop();
     boatArrays.push(ship.findAbstractCord());
+
+    var newBoat = ship.clone({
+      draggable: false
+    })
+    foreGround.add(newBoat);
   });
   boatPositionCallback(boatArrays);
   //TODO: Can still drag

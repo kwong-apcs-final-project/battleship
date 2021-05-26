@@ -3,21 +3,28 @@ package com.github.application;
 import com.github.battleship.Location;
 
 public class Turn {
-    private Location loc;
-    private String uid;
+    private Location aiHit;
+    private boolean hasHit;
 
-    /**
-     * Data model for client and AI turn
-     * @param loc Coordinate location for the hit spot
-     */
-    public Turn(Location loc, String uid) {
-        this.uid = uid; this.loc = loc;
+
+    public Turn(boolean hasHit, Location aiHit) {
+        this.hasHit = hasHit;
+        this.aiHit = aiHit;
     }
 
-    public Location getLocation() {
-        return loc;
+    public Location getAiHit() {
+        return aiHit;
     }
-    public String getUUID () {
-        return uid;
+
+    public void setAiHit(Location aiHit) {
+        this.aiHit = aiHit;
+    }
+
+    public boolean isHasHit() {
+        return hasHit;
+    }
+
+    public void setHasHit(boolean hasHit) {
+        this.hasHit = hasHit;
     }
 }

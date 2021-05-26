@@ -36,7 +36,9 @@ public class TurnHandler extends TextWebSocketHandler {
         Location playerHitLocation = new Gson().fromJson(gameInfo.get(1).toString(), Location.class);
         this.game = gameList.get(uuid);
         Location aiHitLocation = game.playRound(playerHitLocation);
-        TextMessage tm = new TextMessage(aiHitLocation.getLocation().toString());
+        Boolean hasHit = game.playerHit(playerHitLocation);
+        Turn turnMessage = new Turn(hasHit, aiHitLocation);
+        TextMessage tm = new TextMessage(new Gson().toJson(turnMessage));
         try {
             session.sendMessage(tm); // Let's the Client know what the UUID is
         } catch (IOException e) {

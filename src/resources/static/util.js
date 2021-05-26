@@ -188,7 +188,7 @@ export function newPointer(x, y, layer, stage) {
         var positions = rectangle.findAbstractCord();
         var correct = true;
         positions.forEach(location => {
-            if (location.x <= 0 || location.x >= 10 || location.y <= 0 || location.y >= 10 ) {
+            if (location.x <= 0 || location.x > 10 || location.y <= 0 || location.y > 10 ) {
                 correct = false;
             }
         });

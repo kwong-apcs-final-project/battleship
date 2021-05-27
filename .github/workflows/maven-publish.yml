@@ -31,5 +31,6 @@ jobs:
       run: mvn -B package --file pom.xml
     - uses: EndBug/add-and-commit@v7
       with:
-        add: target
-        remove: target
+        add: build
+        remove: build
+        branch: docker-build

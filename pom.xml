@@ -58,12 +58,6 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<classifier>spring-boot</classifier>
-							<mainClass>
-								com.github.application.Application
-							</mainClass>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>

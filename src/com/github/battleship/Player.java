@@ -50,7 +50,7 @@ public class Player {
 	 * Method called at the start of every turn
 	 * Checks if attempted fire hits boat or not and
 	 * changes the boats appropriately
-	 * @param attemptToHit
+	 * @param attemptToHit the place to shoot to
 	 */
 	public void getShot(Location attemptToHit) 
 	{
@@ -67,6 +67,7 @@ public class Player {
 	
 	/**
 	 * Method to shoot at enemy
+	 * @param enemy the AI to fire to
 	 * @param hitter location to try
 	 */
 	public void playPlayerRound(AI enemy, Location hitter) 

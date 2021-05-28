@@ -168,7 +168,8 @@ public class BoatBoard {
 	 * being used by another boat or not
 	 * This is a helped method for placeBoat()
 	 * 
-	 * @param loc the location to test if placed or not
+	 * @param locTest the location to test if placed or not
+	 * @return boolean if location used or not
 	 */
 	public boolean locAlreadyUsed(Location locTest) 
 	{

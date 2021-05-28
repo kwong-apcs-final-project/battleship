@@ -61,6 +61,7 @@ public class AI {
 	 * and fire there
 	 * 
 	 * @param p player to fire to
+	 * @return returning the place where firing to
 	 */
 	public Location playAIRound(Player p) 
 	{

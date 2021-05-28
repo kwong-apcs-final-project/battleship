@@ -40,7 +40,7 @@ public class Location {
 	/**
 	 * Assessor method for X
 	 * 
-	 * @return X the X position
+	 * @return xPos the X position
 	 */
 	public int getX()
 	{
@@ -50,7 +50,7 @@ public class Location {
 	/**
 	 * Assessor method for Y
 	 * 
-	 * @return Y the Y position
+	 * @return yPos the Y position
 	 */
 	public int getY() 
 	{

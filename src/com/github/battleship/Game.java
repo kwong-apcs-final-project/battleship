@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 /**
  * Class that controls the whole game of Battleship
- * Has both the player and AI
+ * Has both the player and AI and uses their methods
+ * to preform the most basic of game logic
+ * 
  * @author kbagal
  *
  */
@@ -26,8 +28,10 @@ public class Game {
 	//methods for running game below
 	// {
 	/**
-	 * aMethod for starting game
-	 * inputs are locations of boats placed on board by player
+	 * Method for starting game
+	 * It also places all of the different AI boats
+	 * 
+	 * Inputs are locations of boats placed on board by player
 	 * 
 	 * @param bL1 locations of boat 1
 	 * @param bL2 locations of boat 2
@@ -40,15 +44,16 @@ public class Game {
 	{
 		myPlayer.placePlayerBoats(bL1, bL2, bL3, bL4, bL5);
 		myAI.placeAIBoats();
-		printBoard();
 		
 	}
 	
 	//plays both Player and AI turns
 	/**
 	 * Method to play one round of the game
-	 * @param ath (attempt to hit) location to try
-	 * @return Location where AI is going to hit
+	 * and check if the game has ended or not
+	 * 
+	 * @param ath (attempt to hit) location to try to fire to by player
+	 * @return Location where AI is going to hit for use in frontend
 	 */
 	public Location playRound(Location ath) 
 	{
@@ -67,7 +72,6 @@ public class Game {
 			return (endGame());
 		}
 		
-		printBoard();
 		return AIhit;
 		
 	}
@@ -107,16 +111,6 @@ public class Game {
 		
 	}
 	// }
-	
-	//prints out player board + AI Board for testing after each round
-	/**
-	 * Method to print out board for testing
-	 * (May not be in use)
-	 */
-	public void printBoard() 
-	{
-		
-	}
 	
 	/**
 	 * Accessor method for myPlayer

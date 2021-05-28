@@ -7,6 +7,10 @@ import java.util.ArrayList;
  * can do all methods that a player of the game 
  * would need when playing against AI
  * 
+ * This involves the firing against an AI
+ * Getting shot by an AI
+ * and checking to see if dead
+ * 
  * @author kbagal
  *
  */
@@ -71,8 +75,10 @@ public class Player {
 	}
 	
 	/**
-	 * Assessor method for all boats in play
-	 * @return boats
+	 * Assessor method for number of boats in play
+	 * used to tell if player is dead or not
+	 * 
+	 * @return BBoard.numBoats() if dead or not if 0
 	 */
 	public int numBoats() 
 	{
@@ -80,8 +86,10 @@ public class Player {
 	}
 	
 	/**
-	 * Assessor method for number of boats still in play
-	 * @return num of Boats
+	 * Assessor method for all boats still in play
+	 * Used in testing, not game logic
+	 * 
+	 * @return BBoard the Boat Board
 	 */
 	public BoatBoard getBBoard() 
 	{

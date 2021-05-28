@@ -4,6 +4,9 @@ import java.util.ArrayList;
 /**
  * Class to represent all of the boats for 
  * either the Player or AI
+ * Has method to place a boat on a board at random
+ * remove one, or add one manually, etc.
+ * 
  * @author kbagal
  *
  */
@@ -22,6 +25,7 @@ public class BoatBoard {
 	
 	/**
 	 * Constructs a new BoatBoard Object
+	 * used for Player since it has locations already
 	 * 
 	 * @param b1 boat 1
 	 * @param b2 boat 2
@@ -41,7 +45,9 @@ public class BoatBoard {
 	
 	/**
 	 * Method that returns if a location is in the boats
-	 * locations or not
+	 * locations or not - used in getShot()
+	 * 
+	 * 
 	 * @param attemptToHit location to test boats with
 	 * @return boolean if true or not
 	 */
@@ -59,6 +65,8 @@ public class BoatBoard {
 	
 	/**
 	 * Method to remove a hit location from a boat
+	 * Precondition: attemptToHit.hasHit() == true
+	 * 
 	 * @param attemptToHit hit location
 	 */
 	public void removeLoc(Location attemptToHit) 
@@ -74,6 +82,7 @@ public class BoatBoard {
 	
 	/**
 	 * Method to remove any boats that have no hittable sports left
+	 * will ultimately leave array empty at the end
 	 */
 	public void ifDeadThenRemove() 
 	{
@@ -89,7 +98,9 @@ public class BoatBoard {
 	
 	/**
 	 * Assessor method for num of boats left
-	 * @return number of boats
+	 * Used to tell if boats are dead
+	 * 
+	 * @return number of boats (if 0 then dead)
 	 */
 	public int numBoats() 
 	{
@@ -155,8 +166,9 @@ public class BoatBoard {
 	/**
 	 * Method to find if a given location is already
 	 * being used by another boat or not
+	 * This is a helped method for placeBoat()
 	 * 
-	 * @param loc
+	 * @param loc the location to test if placed or not
 	 */
 	public boolean locAlreadyUsed(Location locTest) 
 	{
@@ -176,7 +188,7 @@ public class BoatBoard {
 	
 	/**
 	 * Method for adding a boat manually in to the list
-	 * used for testing of class
+	 * used for testing of class, not in game logic
 	 * 
 	 * @param b boat to add
 	 */

@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 /**
  * Class that represents an AI, the player's opponent
+ * And thus does all the methods that a player does
+ * but automated
  * 
- * IN PROGRESS
+ * This AI can shoot at the Player, get shot by the Player
+ * and tell if it is dead
  * 
  * @author kbagal
  *
@@ -16,7 +19,8 @@ public class AI {
 	private ArrayList<Location> spotsLeft;
 	
 	/**
-	 * Default constructor - most likely to be used
+	 * Default constructor
+	 * Used to construct all necesary components
 	 */
 	public AI() 
 	{
@@ -33,23 +37,13 @@ public class AI {
 		}
 	}
 	
-	/**
-	 * Constructs a new AI object
-	 * 
-	 * (May not be used)
-	 * 
-	 * @param b board to insert
-	 */
-	public AI(BoatBoard b) 
-	{
-		AIBBoard = b;
-	}
 	
 	//methods that the AI can do
 	
 	/**
 	 * Method to place boats of AI randomly
 	 * into AIBBoard with boat size of 5, 4, 3, 3, 2
+	 * (the standard boat # and lengths)
 	 */
 	public void placeAIBoats() 
 	{
@@ -65,6 +59,7 @@ public class AI {
 	/**
 	 * Method to choose a random firing location
 	 * and fire there
+	 * 
 	 * @param p player to fire to
 	 */
 	public Location playAIRound(Player p) 
@@ -83,7 +78,9 @@ public class AI {
 	}
 	
 	/**
-	 * Method for getting hit by player
+	 * Method for getting hit by player, acts just like 
+	 * Player.getShot()
+	 * 
 	 * @param attemptToHit players' shot
 	 */
 	public void getShot(Location attemptToHit) 
@@ -103,7 +100,8 @@ public class AI {
 	/**
 	 * Accessor method for AIBBoard number of boats
 	 * used for telling if game is over or not
-	 * @return 
+	 * 
+	 * @return AiBBoard.numBoats if dead or not if 0
 	 */
 	public int numBoats() 
 	{
@@ -112,7 +110,9 @@ public class AI {
 	
 	/**
 	 * Accessor method for AIBBoard
-	 * @return AIBBoard the board
+	 * to be used in testing, not in game logic
+	 * 
+	 * @return AIBBoard the BBoard
 	 */
 	public BoatBoard getAIBBoard() 
 	{

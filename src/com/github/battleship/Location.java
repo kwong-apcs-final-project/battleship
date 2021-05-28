@@ -4,6 +4,8 @@ package com.github.battleship;
 /**
  * Class that represents a given point on a grid
  * with x and y positions
+ * This is only representative of a single point
+ * 
  * @author kbagal
  *
  */
@@ -14,6 +16,7 @@ public class Location {
 	
 	/**
 	 * Constructs a new Location object default version
+	 * Just in case something goes wrong with the code
 	 */
 	public Location()
 	{
@@ -24,6 +27,7 @@ public class Location {
 	/**
 	 * Constructs a new Location object 
 	 * based on input parameters
+	 * 
 	 * @param x x-coord of point
 	 * @param y y-coord of point
 	 */
@@ -35,6 +39,7 @@ public class Location {
 	
 	/**
 	 * Assessor method for X
+	 * 
 	 * @return X the X position
 	 */
 	public int getX()
@@ -44,6 +49,7 @@ public class Location {
 	
 	/**
 	 * Assessor method for Y
+	 * 
 	 * @return Y the Y position
 	 */
 	public int getY() 
@@ -53,6 +59,7 @@ public class Location {
 	
 	/**
 	 * Method to add value to X
+	 * 
 	 * @param x amount to add
 	 */
 	public void addX(int x) 
@@ -61,7 +68,8 @@ public class Location {
 	}
 	
 	/**
-	 * Method to add value to y
+	 * Method to add value to Y
+	 * 
 	 * @param y amount to add
 	 */
 	public void addY(int y) 
@@ -71,6 +79,7 @@ public class Location {
 	
 	/**
 	 * Method to change X all together
+	 * 
 	 * @param x what to change to
 	 */
 	public void changeX(int x) 
@@ -80,6 +89,7 @@ public class Location {
 	
 	/**
 	 * Method to change Y all together
+	 * 
 	 * @param y what to change to
 	 */
 	public void changeY(int y) 
@@ -89,6 +99,8 @@ public class Location {
 	
 	/**
 	 * Method to tell if one location is same as given one
+	 * Used as the equivalent to .equals()
+	 * 
 	 * @param other other location to test
 	 * @return boolean if same or not
 	 */
@@ -103,6 +115,8 @@ public class Location {
 	
 	/**
 	 * Method to return both x and y
+	 * Used for testing
+	 * 
 	 * @return returning an array of x and y positions
 	 */
 	public int[] getLocation() 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Class that represents a boat in the game
  * has locations of where it is on board
+ * 
  * @author kbagal
  *
  */
@@ -15,6 +16,7 @@ public class Boat {
 	//ask if inputs are going to be Locations or x/y coordinates
 	/**
 	 * Constructs a new Boat Object
+	 * 
 	 * @param boatLoc locations objects of the given Boat
 	 */
 	public Boat(ArrayList<Location> boatLoc) 
@@ -25,6 +27,7 @@ public class Boat {
 	/**
 	 * Method that returns whether is given location is
 	 * on the boat or not
+	 * 
 	 * @param attemptToHit location to test
 	 * @return boolean if true or not
 	 */
@@ -43,6 +46,8 @@ public class Boat {
 	/**
 	 * Method to remove a given hit point from 
 	 * Available hit locations
+	 * Precondition: attemptToHit.hasHit() == true
+	 * 
 	 * @param attemptToHit the hit spot
 	 */
 	public void removeLoc(Location attemptToHit) 
@@ -59,6 +64,8 @@ public class Boat {
 	
 	/**
 	 * Assessor method for number of hittable spots left
+	 * used to tell if Player/AI is dead or not
+	 * 
 	 * @return locations.size() = num of hittble spots
 	 */
 	public int spotsLeft() 
@@ -68,7 +75,7 @@ public class Boat {
 	
 	/**
 	 * Accessor method for locations that boat uses
-	 * used in AI.java but can be used for testing
+	 * used in AI.java but can be used for testing as well
 	 * 
 	 * @return locations the locations the boat uses
 	 */
